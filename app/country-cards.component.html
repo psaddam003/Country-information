@@ -1,0 +1,22 @@
+<div class="all-cards-container">
+  <div class="card" *ngFor="#country of countries">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-head">
+          <a [routerLink]="['CountryDetails', {id: country.cca2}]">
+            {{country.name}}
+          </a>
+        </div>
+        <div class="card-body image flag">
+          <a [routerLink]="['CountryDetails', {id: country.cca2}]">
+            <img src="http://lipis.github.io/flag-icon-css/flags/4x3/{{country.cca2 | lowercase}}.svg" alt="">
+          </a>
+        </div>
+        <div class="card-footer">
+          <span class="region pull-left">{{country.region}}</span>
+          <span class="region pull-right">{{country.subregion}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+@media (min-width: 992px)
+.col-md-9 {
+    width: 75%;
+}
+
+.country-detail .flag img{
+  width: 180px;
+  height: 150px;
+  border: 1px solid #eee;
+}
+
+.country-detail .list-group-item {
+    border: 0px solid #ddd;
+    padding: 3px 15px;
+}
+
+.country-detail .list-group{
+    margin-bottom: 0px;
+}
+
+
+.country-detail .vertical-middle {
+  vertical-align: middle;
+}
+
+.country-detail .timezone {
+    margin-left: 5px;
+}

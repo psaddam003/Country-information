@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">What country are you intrested in today?</h1>
+  </div>
+  <div class="panel-body">
+    <div class="search">
+      <form class="form">
+        <div class="form-group form-group-lg">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <input type="search"
+              [(ngModel)]="searchTerm"
+              name="search"
+              (keyup)="onSearch()"
+              class="form-control input-lg"
+              placeholder="Entery Country Name..."
+              autofocus
+            >
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="filter">
+            <label class="control-label" for="region">Region:</label>
+            <select name="region"
+              (change)="onRegionFilterChange($event)"
+              class="form-control"
+            >
+              <option value="">Select a region</option>
+              <option *ngFor="#region of regions" [value]="region">{{region}}</option>
+            </select>
+          </div>
+        </div>
+        <form class="form">
+          <div class="col-md-4">
+            <div class="filter">
+              <label class="control-label" for="subregion">Sub Region:</label>
+              <select name="subregion"
+                (change)="onSubRegionFilterChange($event)"
+                class="form-control"
+              >
+                <option value="">Select a Subregion</option>
+                <option *ngFor="#subregion of subregions" [value]="subregion">{{subregion}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <button (click)="setView('cards')" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+              </button>
+              <button (click)="setView('list')" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <div *ngIf="view=='cards'">
+    <country-cards [countries]="countries"></country-cards>
+  </div>
+  <div *ngIf="view=='list'">
+    <country-list [countries]="countries"></country-list>
+  </div>
+</div>
